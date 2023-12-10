@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Working on Arrays</title>
+    <script>
+        var costs = [];
+        var sum = 0;
+
+        function fun1() {
+            var cost = document.getElementById('id1').value;
+            costs.push(parseFloat(cost));
+            var str = '';
+            for (var i = 0; i < costs.length; i++) {
+                str = str + '<li>' + costs[i] + '</li>';
+            }
+            document.getElementById('ul1').innerHTML = str;
+            document.getElementById('ul1').style.backgroundColor = 'yellow';
+
+        }
+           
+
+        function total(){
+            sum = 0;
+            for (var i = 0; i < costs.length; i++) {
+                sum += costs[i];
+            }
+            console.log(sum);
+            document.getElementById('id2').value=sum
+        }
+        function discount() {
+             //  total with 5% increase
+             var discount = (sum *5)/100;
+            console.log(discount);
+            document.getElementById('id3').value =discount
+            
+        }
+
+        function gst(){
+             // total with 18% GST
+             var gstPercentage = 0.18;
+            var gst = sum + (sum * gstPercentage);
+           console.log(gst);
+            document.getElementById('id4').value =gst
+            
+        }
+        
+    </script>
+</head>
+<body>
+    <lable for="id1">enter the costs</label>
+       <input type="text" id="id1">
+        
+        <button onclick="fun1()">add</button>
+        <ul id="ul1"></ul>
+        <button onclick="total()">total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button> <button onclick="discount()">discount5%</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="gst()">gstwith18%</button><br>
+        <input type="text" id="id2" disabled> <input type="text" id="id3" disabled> <input type="text" id="id4" disabled> 
+</body>
+</html>
